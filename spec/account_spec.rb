@@ -14,5 +14,9 @@ describe Account do
       account.deposit(1)
       expect(account.withdraw(1)).to eq 0
     end
+
+    it "should raise an error if the user tries to withdraw more money than the actual balance" do
+      expect { account.withdraw(1) }.to raise_error "You don't have enough balance"
+    end
   end
 end
