@@ -1,3 +1,4 @@
+require 'date'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
