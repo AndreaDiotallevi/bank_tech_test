@@ -5,6 +5,6 @@ describe "a user can deposit and withdraw from his account" do
     account = Account.new
     account.deposit(2)
     account.withdraw(1)
-    expect(account.deposit(1)).to eq 1
+    expect(account.balance).to eq 1
   end
 end
