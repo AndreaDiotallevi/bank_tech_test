@@ -6,7 +6,6 @@ describe "a user can print its account statement" do
     account = Account.new
     account.deposit(1000)
     account.withdraw(500)
-    p account
 
     transaction1 = "10/01/2012 || 1000.00 || || 1000.00"
     transaction2 = "10/01/2012 || || 500.00 || 500.00"
