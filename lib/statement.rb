@@ -1,5 +1,3 @@
-require "transaction"
-
 class Statement
   TITLE = "date || credit || debit || balance"
 
