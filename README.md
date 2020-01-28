@@ -81,6 +81,8 @@ The code is structured into two main folders:
   - The ```features``` folder, which includes the feature tests
   - The ```units``` folder, which includes the unit tests
 
+The code is structured this way to separate the model files from the tests files. In addition, this is the conventional way to structure Ruby code tested with RSpec.
+
 ### Technologies Used
 
 * ```ruby``` for the code
