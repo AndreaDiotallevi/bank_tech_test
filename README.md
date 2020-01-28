@@ -56,12 +56,12 @@ ACCOUNT           | STATEMENT           | TRANSACTION
 ----------------- | ------------------- | ---------------
 @balance          | @transactions       | @date
 @statement        | @transaction_class  | @credit
-///////////////// | /////////////////// | @debit
-deposit           | add_transaction     | @balance
-withdraw          | format_transactions | ///////////////
-print_statement   |                     | format
-                  |                     | format_date
-                  |                     | format_decimals
+                  |                     | @debit
+                  |                     | @balance
+................. | ................... | .............
+deposit           | add_transaction     | format
+withdraw          | format_transactions | format_date
+print_statement   |                     | format_decimals
 
 ### Technologies Used
 
@@ -79,7 +79,46 @@ print_statement   |                     | format
   - ```require "./lib/account.rb"```
   - ```require "./lib/statement.rb"```
   - ```require "./lib/transaction.rb"```
-* You are now all set to start using the program via IRB
+  - ```require "date"```
+
+### How to Use It - Feature Test
+
+```
+Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
+2.6.3 :001 > require "./lib/account.rb"
+ => true 
+2.6.3 :002 > require "./lib/statement.rb"
+ => true 
+Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
+2.6.3 :001 > require "./lib/account.rb"
+ => true 
+2.6.3 :002 > require "./lib/statement.rb"
+ => true 
+2.6.3 :003 > require "./lib/transaction.rb"
+ => true 
+2.6.3 :004 > require "date"
+ => true 
+2.6.3 :005 > account = Account.new
+ => #<Account:0x00007ffadc0f8a50 @balance=0, @statement=#<Statement:0x00007ffadc0f8a00 @transactions=[], @transaction_class=Transaction>> 
+2.6.3 :006 > account.balance
+ => 0 
+2.6.3 :007 > account.print_statement
+ => "date || credit || debit || balance\n" 
+2.6.3 :008 > account.deposit(1000)
+ => 1000 
+2.6.3 :009 > account.print_statement
+ => "date || credit || debit || balance\n28/01/2020 || 1000.00 || || 1000.00" 
+2.6.3 :010 > account.withdraw(500)
+ => 500 
+2.6.3 :011 > account.balance
+ => 500 
+2.6.3 :012 > account.print_statement
+ => "date || credit || debit || balance\n28/01/2020 || || 500.00 || 500.00\n28/01/2020 || 1000.00 || || 1000.00" 
+2.6.3 :013 > account.deposit(200)
+ => 700 
+2.6.3 :014 > account.print_statement
+ => "date || credit || debit || balance\n28/01/2020 || 200.00 || || 700.00\n28/01/2020 || || 500.00 || 500.00\n28/01/2020 || 1000.00 || || 1000.00" 
+ ```
 
 ### How to Run the Tests
 
