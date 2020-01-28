@@ -52,16 +52,16 @@ I want to be able to see my overall account statement
 
 ### Domain Models
 
-ACCOUNT           | STATEMENT           | TRANSACTION
------------------ | ------------------- | ---------------
-@balance          | @transactions       | @date
-@statement        | @transaction_class  | @credit
-                  |                     | @debit
-                  |                     | @balance
-................. | ................... | .............
-deposit           | add_transaction     | format
-withdraw          | format_transactions | format_date
-print_statement   |                     | format_decimals
+| ACCOUNT         | STATEMENT           | TRANSACTION
+| --------------- | ------------------- | ---------------
+| @balance        | @transactions       | @date
+| @statement      | @transaction_class  | @credit
+|                 |                     | @debit
+|                 |                     | @balance
+|                 |                     |
+| deposit         | add_transaction     | format
+| withdraw        | format_transactions | format_date
+| print_statement |                     | format_decimals
 
 ### Technologies Used
 
