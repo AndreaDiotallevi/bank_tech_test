@@ -22,7 +22,7 @@ describe Account do
   end
 
   describe "#print_statement" do
-    it "should print a nice formatted table with transactions in reverse chronological order" do
+    it "should print a formatted table with transactions date, credit, debit and balance" do
       account.deposit(1000)
       expect { account.print_statement }.to output("date || credit || debit || balance\n10/01/2012 || 1000.00 || || 1000.00").to_stdout
     end

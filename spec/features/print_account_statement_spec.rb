@@ -1,7 +1,7 @@
 require "account"
 
 describe "a user can print its account statement" do
-  it "should print a nice formatted table with transactions in reverse chronological order" do
+  it "should return a formatted table with transactions in reverse chronological order" do
     allow(Date).to receive(:today).and_return Date.new(2012, 1, 10)
     account = Account.new
     account.deposit(1000)
