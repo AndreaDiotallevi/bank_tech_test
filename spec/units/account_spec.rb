@@ -4,9 +4,9 @@ describe Account do
   let(:statement) { double(:statement, add_transaction: nil, format_transactions: "date || credit || debit || balance\n10/01/2012 || || 500.00 || 500.00\n10/01/2012 || 1000.00 || || 1000.00") }
   let(:account) { Account.new(statement) }
 
-  describe "#balance" do
+  describe "#current_balance" do
     it "should return an initial balance of 0" do
-      expect(account.balance).to eq 0
+      expect(account.current_balance).to eq 0
     end
   end
 

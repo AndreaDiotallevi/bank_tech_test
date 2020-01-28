@@ -59,9 +59,10 @@ I want to be able to see my overall account statement
 |                 |                     | @debit
 |                 |                     | @balance
 |                 |                     |
-| deposit         | add_transaction     | format
-| withdraw        | format_transactions | format_date
-| print_statement |                     | format_decimals
+| current_balance | add_transaction     | format
+| deposit         | format_transactions | format_date
+| withdraw        |                     | format_decimals
+| print_statement |                     |
 
 ### Design Approach
 
