@@ -6,8 +6,8 @@ class Statement
     @transaction_class = transaction_class
   end
 
-  def add_transaction(date, credit, debit, balance)
-    @transactions << @transaction_class.new(date, credit, debit, balance)
+  def add_transaction(credit, debit, balance)
+    @transactions << @transaction_class.new(credit, debit, balance)
   end
 
   def format_transactions

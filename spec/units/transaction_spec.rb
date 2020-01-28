@@ -1,11 +1,13 @@
 require "transaction"
 
 describe Transaction do
-  let(:transaction) { Transaction.new(Date.today, 1000, 0, 1000) }
+  let(:date) { double(:date) }
+  let(:time_class) { double(:time_class, new: date) }
+  let(:transaction) { Transaction.new(1000, 0, 1000, time_class) }
 
   describe "#format" do
     it "should return a formatted transaction" do
-      allow(Date).to receive(:today).and_return Date.new(2012, 1, 10)
+      allow(date).to receive(:strftime).with("%d/%m/%Y").and_return "10/01/2012"
       expect(transaction.format).to eq "10/01/2012 || 1000.00 || || 1000.00"
     end
   end

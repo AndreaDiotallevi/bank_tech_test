@@ -7,14 +7,13 @@ describe Statement do
 
   describe "#add_transaction" do
     it "should return all transactions" do
-      expect(statement.add_transaction(Date.today, 1000, 0, 1000)).to eq [transaction]
+      expect(statement.add_transaction(1000, 0, 1000)).to eq [transaction]
     end
   end
 
   describe "#format_transactions" do
     it "should return a formatted table with transactions date, credit, debit and balance" do
-      allow(Date).to receive(:today).and_return Date.new(2012, 1, 10)
-      statement.add_transaction(Date.today, 1000, 0, 1000)
+      statement.add_transaction(1000, 0, 1000)
       expect(statement.format_transactions).to eq "#{Statement::TITLE}\n10/01/2012 || 1000.00 || || 1000.00"
     end
   end

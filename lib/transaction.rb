@@ -1,16 +1,16 @@
 class Transaction
-  def initialize(date, credit, debit, balance)
-    @date = date
+  def initialize(credit, debit, balance, time_class = Time)
     @credit = credit
     @debit = debit
     @balance = balance
+    @date = time_class.new
   end
 
   def format
-    credit = @credit.zero? ? "" : format_decimals(@credit)
-    debit = @debit.zero? ? "" : format_decimals(@debit)
+    credit = format_decimals(@credit)
+    debit = format_decimals(@debit)
     balance = format_decimals(@balance)
-    [format_date, credit, debit, balance].join(" || ").gsub("  ", " ")
+    [format_date, credit, debit, balance].join(" || ").gsub(" 0.00 ", " ")
   end
 
   private

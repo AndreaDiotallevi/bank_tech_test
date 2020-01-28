@@ -60,7 +60,7 @@ I want to be able to see my overall account statement
 |                 |                     | @balance
 |                 |                     |
 | current_balance | add_transaction     | format
-| deposit         | format_transactions | format_date
+| deposit         | format_transactions | format_time
 | withdraw        |                     | format_decimals
 | print_statement |                     |
 
@@ -90,6 +90,7 @@ The code is structured this way to separate the model files from the tests files
 * ```rspec``` for testing
 * ```rubocop``` for linting
 * ```simplecov``` for test coverage
+* ```timecop``` for feature testing time-dependent code
 
 ### Prerequisites
 
@@ -101,7 +102,6 @@ The code is structured this way to separate the model files from the tests files
   - ```require "./lib/account.rb"```
   - ```require "./lib/statement.rb"```
   - ```require "./lib/transaction.rb"```
-  - ```require "date"```
   
 ### How to Run the Tests
 
@@ -121,29 +121,27 @@ Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
  => true 
 2.6.3 :003 > require "./lib/transaction.rb"
  => true 
-2.6.3 :004 > require "date"
- => true 
-2.6.3 :005 > account = Account.new
+2.6.3 :004 > account = Account.new
  => #<Account:0x00007f8c21869408 @balance=0, @statement=#<Statement:0x00007f8c218693b8 @transactions=[], @transaction_class=Transaction>> 
-2.6.3 :006 > account.balance
+2.6.3 :005 > account.balance
  => 0 
-2.6.3 :007 > account.print_statement
+2.6.3 :006 > account.print_statement
 date || credit || debit || balance
  => nil 
-2.6.3 :008 > account.deposit(1000)
+2.6.3 :007 > account.deposit(1000)
  => 1000 
-2.6.3 :009 > account.print_statement
+2.6.3 :008 > account.print_statement
 date || credit || debit || balance
 28/01/2020 || 1000.00 || || 1000.00 => nil 
-2.6.3 :010 > account.withdraw(500)
+2.6.3 :009 > account.withdraw(500)
  => 500 
-2.6.3 :011 > account.print_statement
+2.6.3 :010 > account.print_statement
 date || credit || debit || balance
 28/01/2020 || || 500.00 || 500.00
 28/01/2020 || 1000.00 || || 1000.00 => nil 
-2.6.3 :012 > account.withdraw(200)
+2.6.3 :011 > account.withdraw(200)
  => 300 
-2.6.3 :013 > account.print_statement
+2.6.3 :012 > account.print_statement
 date || credit || debit || balance
 28/01/2020 || || 200.00 || 300.00
 28/01/2020 || || 500.00 || 500.00
