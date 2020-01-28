@@ -1,7 +1,7 @@
 require "account"
 
 describe "a user can print its account statement" do
-  it "should return a nice formatted table with date, credit, debit and balance in reverse chronological order" do
+  it "should print a nice formatted table with transactions in reverse chronological order" do
     allow(Date).to receive(:today).and_return Date.new(2012, 1, 10)
     account = Account.new
     account.deposit(1000)
@@ -9,6 +9,6 @@ describe "a user can print its account statement" do
 
     transaction1 = "10/01/2012 || 1000.00 || || 1000.00"
     transaction2 = "10/01/2012 || || 500.00 || 500.00"
-    expect(account.print_statement).to eq "#{Statement::TITLE}\n#{transaction2}\n#{transaction1}"
+    expect { account.print_statement }.to output("#{Statement::TITLE}\n#{transaction2}\n#{transaction1}").to_stdout
   end
 end

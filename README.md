@@ -116,33 +116,33 @@ Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
  => true 
 2.6.3 :002 > require "./lib/statement.rb"
  => true 
-Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
-2.6.3 :001 > require "./lib/account.rb"
- => true 
-2.6.3 :002 > require "./lib/statement.rb"
- => true 
 2.6.3 :003 > require "./lib/transaction.rb"
  => true 
 2.6.3 :004 > require "date"
  => true 
 2.6.3 :005 > account = Account.new
- => #<Account:0x00007ffadc0f8a50 @balance=0, @statement=#<Statement:0x00007ffadc0f8a00 @transactions=[], @transaction_class=Transaction>> 
+ => #<Account:0x00007f8c21869408 @balance=0, @statement=#<Statement:0x00007f8c218693b8 @transactions=[], @transaction_class=Transaction>> 
 2.6.3 :006 > account.balance
  => 0 
 2.6.3 :007 > account.print_statement
- => "date || credit || debit || balance\n" 
+date || credit || debit || balance
+ => nil 
 2.6.3 :008 > account.deposit(1000)
  => 1000 
 2.6.3 :009 > account.print_statement
- => "date || credit || debit || balance\n28/01/2020 || 1000.00 || || 1000.00" 
+date || credit || debit || balance
+28/01/2020 || 1000.00 || || 1000.00 => nil 
 2.6.3 :010 > account.withdraw(500)
  => 500 
-2.6.3 :011 > account.balance
- => 500 
-2.6.3 :012 > account.print_statement
- => "date || credit || debit || balance\n28/01/2020 || || 500.00 || 500.00\n28/01/2020 || 1000.00 || || 1000.00" 
-2.6.3 :013 > account.deposit(200)
- => 700 
-2.6.3 :014 > account.print_statement
- => "date || credit || debit || balance\n28/01/2020 || 200.00 || || 700.00\n28/01/2020 || || 500.00 || 500.00\n28/01/2020 || 1000.00 || || 1000.00" 
- ```
+2.6.3 :011 > account.print_statement
+date || credit || debit || balance
+28/01/2020 || || 500.00 || 500.00
+28/01/2020 || 1000.00 || || 1000.00 => nil 
+2.6.3 :012 > account.withdraw(200)
+ => 300 
+2.6.3 :013 > account.print_statement
+date || credit || debit || balance
+28/01/2020 || || 200.00 || 300.00
+28/01/2020 || || 500.00 || 500.00
+28/01/2020 || 1000.00 || || 1000.00 => nil
+```

@@ -19,6 +19,6 @@ class Account
   end
 
   def print_statement
-    @statement.format_transactions
+    print @statement.format_transactions
   end
 end
