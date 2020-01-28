@@ -63,6 +63,16 @@ I want to be able to see my overall account statement
 | withdraw        | format_transactions | format_date
 | print_statement |                     | format_decimals
 
+### Design Approach
+
+The program has three classes and each of them has a clear responsibility:
+
+- **ACCOUNT**: takes care of the account behaviours, like keeping track of the overall balance, deposit on the account, withdraw from the account and print the overall statement. A statement instance variable is dependency injected into the account class, to allow the transaction history and formatting responsibilities to be carried out by the statement instance variable.
+
+- **STATEMENT**: takes care of the transactions history and formatting of all transactions into a printable statement. The transaction class is dependency injected into the statement class, to allow the creation of a new transaction instance variable at each deposit and withdrawal.
+
+- **TRANSACTION**: takes care of the single transaction properties and their formatting.
+
 ### Technologies Used
 
 * ```ruby``` for the code
