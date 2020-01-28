@@ -73,11 +73,20 @@ The program has three classes and each of them has a clear responsibility:
 
 - **TRANSACTION**: takes care of the single transaction properties and their formatting.
 
+### Code Structure
+
+The code is structured into two main folders:
+- The ```lib``` folder, which includes the code
+- The ```spec``` folder, which includes the tests. This folder is also divided into two folders:
+  - The ```features``` folder, which include the feature tests
+  - The ```units``` folder, which include the unit tests
+
 ### Technologies Used
 
 * ```ruby``` for the code
 * ```rspec``` for testing
 * ```rubocop``` for linting
+* ```simplecov``` for test coverage
 
 ### Prerequisites
 
