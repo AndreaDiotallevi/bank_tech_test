@@ -123,7 +123,7 @@ Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
  => true 
 2.6.3 :004 > account = Account.new
  => #<Account:0x00007f8c21869408 @balance=0, @statement=#<Statement:0x00007f8c218693b8 @transactions=[], @transaction_class=Transaction>> 
-2.6.3 :005 > account.balance
+2.6.3 :005 > account.current_balance
  => 0 
 2.6.3 :006 > account.print_statement
 date || credit || debit || balance
