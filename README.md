@@ -67,9 +67,9 @@ I want to be able to see my overall account statement
 
 The program has three classes and each of them has a clear responsibility:
 
-- **ACCOUNT**: takes care of the account behaviours, like keeping track of the overall balance, deposit on the account, withdraw from the account and print the overall statement. A statement instance variable is dependency injected into the account class, to allow the transaction history and formatting responsibilities to be carried out by the statement instance variable.
+- **ACCOUNT**: takes care of the account behaviours, like keeping track of the overall balance, deposit on the account, withdraw from the account and print the overall statement. A statement instance variable is dependency injected into the account class, to allow the transaction history and formatting responsibilities to be carried out by the statement class.
 
-- **STATEMENT**: takes care of the transactions history and formatting of all transactions into a printable statement. The transaction class is dependency injected into the statement class, to allow the creation of a new transaction instance variable at each deposit and withdrawal.
+- **STATEMENT**: takes care of the transactions history and formatting of all transactions into a printable statement. The transaction class is dependency injected into the statement class, to allow the creation of a new transaction at each deposit and withdrawal.
 
 - **TRANSACTION**: takes care of the single transaction properties and their formatting.
 
@@ -78,8 +78,8 @@ The program has three classes and each of them has a clear responsibility:
 The code is structured into two main folders:
 - The ```lib``` folder, which includes the code
 - The ```spec``` folder, which includes the tests. This folder is also divided into two folders:
-  - The ```features``` folder, which include the feature tests
-  - The ```units``` folder, which include the unit tests
+  - The ```features``` folder, which includes the feature tests
+  - The ```units``` folder, which includes the unit tests
 
 ### Technologies Used
 
@@ -99,8 +99,16 @@ The code is structured into two main folders:
   - ```require "./lib/statement.rb"```
   - ```require "./lib/transaction.rb"```
   - ```require "date"```
+  
+### How to Run the Tests
 
-### How to Use It - Feature Test
+To run all the tests type ```rspec```
+
+### How to run the Linter
+
+To run the linter type ```rubocop```
+
+### How to Use the Program - Feature Test
 
 ```
 Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
@@ -138,11 +146,3 @@ Makerss-MacBook-Air-2:bank andreadiotallevi$ irb
 2.6.3 :014 > account.print_statement
  => "date || credit || debit || balance\n28/01/2020 || 200.00 || || 700.00\n28/01/2020 || || 500.00 || 500.00\n28/01/2020 || 1000.00 || || 1000.00" 
  ```
-
-### How to Run the Tests
-
-To run all the tests type ```rspec```
-
-### How to run the Linter
-
-To run the linter type ```rubocop```
