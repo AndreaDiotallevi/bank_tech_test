@@ -95,7 +95,7 @@ The code is structured this way to separate the model files from the tests files
 ### Prerequisites
 
 * Clone this repository with ```git clone```
-* Change into the folder with ```cd bank_tech_test```
+* Change into the folder with ```cd bank```
 * Run ```bundle``` to install all the dependencies
 * Open IRB with ```irb```
 * Require the model files with:
