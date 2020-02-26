@@ -9,4 +9,5 @@ end
 
 group :development do
   gem 'rubocop', '0.71.0'
+  gem 'travis'
 end
